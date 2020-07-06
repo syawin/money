@@ -1,5 +1,5 @@
-data class Dollar(var amount: Int) {
-    fun times(multiplier: Int) {
-        this.amount *= multiplier
-    }
+data class Dollar(val amount: Int) {
+
+    fun times(multiplier: Int): Dollar =
+            Dollar(this.amount * multiplier)
 }
