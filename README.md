@@ -6,12 +6,6 @@ Kotlin implementation of multi-currency money using TDD.
 
 Download links:
 
-SSH clone URL: ssh://git@git.jetbrains.space/pallas/mny/money.git
-
-HTTPS clone URL: https://git.jetbrains.space/pallas/mny/money.git
-
-
-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ## Prerequisites
