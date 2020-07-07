@@ -7,6 +7,7 @@ fun main() {
     testFrancMultiplication()
     testEquality()
     testCurrency()
+    testSimpleAddition()
 }
 
 private fun testDollarMultiplication() {
@@ -32,4 +33,12 @@ private fun testEquality() {
 private fun testCurrency() {
     assertEquals("USD", Money.dollar(1).currency)
     assertEquals("CHF", Money.franc(1).currency)
+}
+
+private fun testSimpleAddition() {
+    val five = Money.dollar(5)
+    val sum: Expression = five.plus(five)
+    val bank = Bank()
+    val reduced: Money = bank.reduce(sum, "USD")
+    assertEquals(Money.dollar(10), reduced)
 }

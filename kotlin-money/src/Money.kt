@@ -1,4 +1,4 @@
-class Money(val amount: Int, val currency: String) {
+class Money(val amount: Int, val currency: String) : Expression {
 
     override fun equals(other: Any?): Boolean {
         val money: Money = other as Money
@@ -14,6 +14,9 @@ class Money(val amount: Int, val currency: String) {
         return "Money(amount=$amount, currency='$currency')"
     }
 
+    fun plus(addend: Money): Expression {
+        return Money(amount + addend.amount, currency)
+    }
 
     companion object Factory {
         fun dollar(amount: Int): Money {
