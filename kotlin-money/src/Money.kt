@@ -1,5 +1,9 @@
 class Money(val amount: Int, val currency: String) : Expression {
 
+    override fun reduce(to: String): Money {
+        return this
+    }
+
     override fun equals(other: Any?): Boolean {
         val money: Money = other as Money
         return amount == money.amount
@@ -15,7 +19,7 @@ class Money(val amount: Int, val currency: String) : Expression {
     }
 
     fun plus(addend: Money): Expression {
-        return Money(amount + addend.amount, currency)
+        return Sum(this, addend)
     }
 
     companion object Factory {
