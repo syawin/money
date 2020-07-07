@@ -1,6 +1,6 @@
 class Dollar(amount: Int) : Money(amount) {
 
-    fun times(multiplier: Int): Dollar =
+    override fun times(multiplier: Int): Money =
             Dollar(this.amount * multiplier)
 
 }
