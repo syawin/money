@@ -1,4 +1,5 @@
-abstract class Money(val amount: Int) {
+abstract class Money(val amount: Int, val currency: String) {
+
     override fun equals(other: Any?): Boolean {
         val money: Money = other as Money
         return amount == money.amount
@@ -9,11 +10,11 @@ abstract class Money(val amount: Int) {
 
     companion object Factory {
         fun dollar(amount: Int): Dollar {
-            return Dollar(amount)
+            return Dollar(amount, "USD")
         }
 
         fun franc(amount: Int): Franc {
-            return Franc(amount)
+            return Franc(amount, "CHF")
         }
     }
 }

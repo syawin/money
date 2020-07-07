@@ -1,5 +1,5 @@
-class Franc(amount: Int) : Money(amount) {
+class Franc(amount: Int, currency: String) : Money(amount, currency) {
 
     override fun times(multiplier: Int): Money =
-            Franc(this.amount * multiplier)
+            Money.franc(amount * multiplier)
 }
