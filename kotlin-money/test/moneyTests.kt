@@ -1,5 +1,12 @@
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals
+
+private fun testDollarMultiplication() {
+    val five = Dollar(5)
+    assertEquals(Dollar(10), five.times(2))
+    assertEquals(Dollar(15), five.times(3))
+}
 
 private fun testFrancMultiplication() {
     val five = Franc(5)
@@ -8,11 +15,15 @@ private fun testFrancMultiplication() {
 }
 
 private fun testEquality() {
+    assertEquals(Dollar(5), Dollar(5))
+    assertNotEquals(Dollar(5), Dollar(6))
     assertEquals(Franc(5), Franc(5))
     assertNotEquals(Franc(5), Franc(6))
+    assertFalse(Dollar(5).equals(Franc(5)))
 }
 
 fun main() {
+    testDollarMultiplication()
     testFrancMultiplication()
     testEquality()
 }
