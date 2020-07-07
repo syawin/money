@@ -1,20 +1,27 @@
-abstract class Money(val amount: Int, val currency: String) {
+class Money(val amount: Int, val currency: String) {
 
     override fun equals(other: Any?): Boolean {
         val money: Money = other as Money
         return amount == money.amount
-                && this.javaClass == money.javaClass
+                && currency == money.currency
     }
 
-    abstract fun times(multiplier: Int): Money
+    fun times(multiplier: Int): Money {
+        return Money(amount * multiplier, currency)
+    }
+
+    override fun toString(): String {
+        return "Money(amount=$amount, currency='$currency')"
+    }
+
 
     companion object Factory {
-        fun dollar(amount: Int): Dollar {
-            return Dollar(amount, "USD")
+        fun dollar(amount: Int): Money {
+            return Money(amount, "USD")
         }
 
-        fun franc(amount: Int): Franc {
-            return Franc(amount, "CHF")
+        fun franc(amount: Int): Money {
+            return Money(amount, "CHF")
         }
     }
 }
