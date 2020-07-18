@@ -8,4 +8,8 @@ class Sum(val augend: Expression, val addend: Expression) : Expression {
         return Sum(this, addend)
     }
 
+    override fun times(multiplier: Int): Expression {
+        return Sum(augend.times(multiplier), addend.times(multiplier))
+    }
+
 }

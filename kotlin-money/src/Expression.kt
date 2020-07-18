@@ -3,5 +3,5 @@ interface Expression {
 
     fun plus(added: Expression): Expression
 
-    //@todo Expression.times
+    fun times(multiplier: Int): Expression
 }
