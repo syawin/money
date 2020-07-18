@@ -1,5 +1,4 @@
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals
 
 fun main() {
@@ -10,6 +9,8 @@ fun main() {
     testReduceSum()
     testPlusReturnsSum()
     testReduceMoney()
+    testReduceMoneyDiffCurrency()
+    testIdentityRate()
 }
 
 private fun testDollarMultiplication() {
@@ -29,7 +30,7 @@ private fun testEquality() {
     assertNotEquals(Money.dollar(5), Money.dollar(6))
     assertEquals(Money.franc(5), Money.franc(5))
     assertNotEquals(Money.franc(5), Money.franc(6))
-    assertFalse(Money.dollar(5).equals(Money.franc(5)))
+    assertNotEquals(Money.dollar(5), Money.franc(5))
 }
 
 private fun testCurrency() {
