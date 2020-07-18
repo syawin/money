@@ -11,6 +11,7 @@ fun main() {
     testReduceMoney()
     testReduceMoneyDiffCurrency()
     testIdentityRate()
+    testMixedAddition()
 }
 
 private fun testDollarMultiplication() {
@@ -55,17 +56,26 @@ private fun testReduceSum() {
 
 private fun testReduceMoney() {
     val bank = Bank()
-    val result = bank.reduce(Money.dollar(1),"USD")
+    val result = bank.reduce(Money.dollar(1), "USD")
     assertEquals(Money.dollar(1), result)
 }
 
 private fun testReduceMoneyDiffCurrency() {
     val bank = Bank()
-    bank.addRate("CHF","USD",2)
+    bank.addRate("CHF", "USD", 2)
     val result = bank.reduce(Money.franc(2), "USD")
     assertEquals(Money.dollar(1), result)
 }
 
 private fun testIdentityRate() {
-    assertEquals(1, Bank().rate("USD","USD"))
+    assertEquals(1, Bank().rate("USD", "USD"))
+}
+
+private fun testMixedAddition() {
+    val fiveD = Money.dollar(5)
+    val tenF = Money.franc(10)
+    val bank = Bank()
+    bank.addRate("CHF", "USD", 2)
+    val result = bank.reduce(fiveD.plus(tenF), "USD")
+    assertEquals(Money.dollar(10), result)
 }
