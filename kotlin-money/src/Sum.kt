@@ -4,10 +4,8 @@ class Sum(val augend: Expression, val addend: Expression) : Expression {
         return Money(amount, to)
     }
 
-    /*
-    * @todo Sum.plus*/
-    override fun plus(added: Expression): Expression {
-        TODO("Not yet implemented")
+    override fun plus(addend: Expression): Expression {
+        return Sum(this, addend)
     }
 
 }
